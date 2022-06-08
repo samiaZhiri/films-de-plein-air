@@ -1,0 +1,601 @@
+ /************GENERAL************/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root{
+    --main-color:#d3ad7f;
+    --black:#13131a;
+    --bg:#010103;
+    --border:.1rem solid rgba(255,255,255,.3);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    text-decoration: none;
+    outline: none; 
+    text-transform: capitalize;
+    transition: .2s linear;
+    font-family: 'Roboto', sans-serif;  
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background: #fff;
+    border-radius: 5rem;
+}
+body{
+    background: var(--bg);
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    font-size: 1.7rem;
+    color: white;
+    background: var(--main-color);
+    cursor: pointer;
+}
+.btn:hover{
+    letter-spacing: .2rem;
+}
+section{
+    padding: 2rem 7%;
+}
+/************HEADER************/
+header .container-header img{
+    /* width: 20%;  */
+    height: 8rem;
+ 
+}
+header .container-header{
+   display: flex;     
+   justify-content: space-between; 
+   align-items: center;
+   padding: 1.5rem 7%;
+   background-color:var(--bg);
+   border-bottom: var(--border); 
+   position:fixed; 
+   top: 0; left: 0; right: 0;  
+   z-index:1000;     
+}
+.navbar li a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color:white; 
+}
+.navbar a:hover{
+    color: var(--main-color);
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .5rem;
+}
+.icons i {
+    color: white;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
+.icons i:hover{
+    color:var(--main-color);
+}
+#menu{
+  display: none;
+}
+.container-header .search-form{
+    position: absolute;
+    top: 115%; right: 7%;
+    background: white;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+/* .container-header .search-form.active{
+    transform: scaleY(1);   
+}
+.container-header .search-form input{
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    padding: 1rem;
+    text-transform: none;
+}
+.container-header .search-form label{
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color:var(--black);
+}
+.container-header .search-form label:hover{
+    color:var(--main-color);
+} */
+/************ACCUEIL************/
+
+.container-title{
+    background: url(images/Cinema-en-plein-air2.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center; 
+} 
+.content{
+    max-width: 60rem;
+}
+.content h1{
+    width: 80%;
+    color: white;    
+    text-transform: uppercase;
+   font-size: 5rem;
+
+}
+.content p{
+    color: white;
+    font-weight: bolder; 
+    line-height: 1.8;
+    padding: 1rem 0;
+   font-size: 2rem;
+}
+
+/*****************ASSOCIATION***********/
+.heading{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+.association .row{
+    display: flex;
+    align-items: center;
+    background: var(--black);
+    flex-wrap: wrap;
+}
+.association .row .image{
+    flex: 1 1 45rem;    
+}
+.association .row .image img{
+    width: 100%;   
+}
+.association .row .content{
+    flex: 1 1 45rem; 
+    padding: 2rem;   
+}
+.association .row .content h3{
+    font-size: 3rem;
+    color: white;
+}
+.association .row .content p{
+    font-size: 1.6rem;
+    color: #ccc;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+/*****************FILMS***********/
+.box-container{    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+.card{    
+    background: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0px 4px 7px rgba(0,0,0,.5);
+    cursor: pointer;
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    overflow: hidden;
+    position: relative; 
+}
+.card img{
+    width: 100%;
+    height:100%;
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+   
+}
+.description{
+    position: absolute;
+    top:0px;
+    left:0px;
+    background-color: rgba(255,255,255,.7);
+    width:100%;
+    height:100%;
+    transition: all .7s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+    clip-path: circle(0% at 100% 100%);
+}
+.card:hover .description{
+    left:0px;
+    transition: all .7s ease-in-out;
+    clip-path: circle(75%);
+}
+.card:hover{
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    box-shadow: 0px 2px 3px rgba(0,0,0,.3);
+    transform: scale(.97);
+}
+.card:hover img{
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    transform: scale(1.6) rotate(20deg);
+    filter: blur(3px);
+}
+.card h1{    
+    /* position: absolute; */
+    text-transform: uppercase;    
+    font-size: 2rem;
+    color: var(--black);
+    text-align: center;
+}
+.card h2{
+    color: var(--black);
+    letter-spacing: 1px;
+    /* margin: 0 2rem; */
+    font-size: 3rem;
+}
+.card p{
+    line-height: 24px;
+    height: 70%;
+    font-size: 2rem;
+    padding-top: 2rem;
+}
+.card button a{
+    color:#fff;
+}
+/***************************RESERVER******************************/
+.reservation .row{
+    display: flex;
+    align-items: center;
+    background: whitesmoke;
+    flex-wrap: wrap;
+}
+.reservation .row .image{
+    flex: 1 1 45rem;    
+}
+.reservation .row .image img{
+    width: 100%;   
+}
+.reservation .row .content{
+    flex: 1 1 45rem; 
+    padding: 2rem;   
+}
+.reservation .heading{
+    text-align: center;
+    color:white;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+.reservation .row .content h3{
+    font-size: 3rem;
+    color:var(--black);
+    margin-left: 2%;
+    margin-bottom: 5%;
+}
+ .form-row{
+    display: flex;
+    width: 100%;
+    /* margin: 0 auto; */
+}
+form select, form input{
+    display: block;
+    width: 100%;
+    margin: 15px 4px; /*margin: 18px 12px;*/
+    padding: 8px;
+    font-size: 15px;
+    font-family:'Roboto', sans-serif;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    font-weight: 300;
+}
+form input[type = text], form input[type = number], form input[type = email], form input::placeholder, select{
+    color: #9a9a9a;
+}
+/********************************ACTUALITES***********************/
+.actualites .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+.actualites .box-container .box{
+    border: var(--border);
+}
+.actualites .box-container .box .image{
+    height: 25rem;
+    overflow:hidden;
+    width: 100%;
+}
+.actualites .box-container .box .image img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+.actualites .box-container .box:hover .image img{
+    transform: scale(1.2);
+}
+.actualites .box-container .box .content{
+    padding: 2rem;
+}
+.actualites .box-container .box .content .title{
+    font-size: 2.5rem;
+    line-height: 1.5;
+    color: white;
+}
+.actualites .box-container .box .content .title:hover{
+    color: var(--main-color);
+}
+.actualites .box-container .box .content span{
+    color: var(--main-color);
+    display: block;
+    padding-top: 1rem;
+    font-size: 2rem;
+}
+.actualites .box-container .box .content p{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #ccc;
+    padding: 1rem 0;
+}
+
+/*********************************CONTACT***************************/
+/* .itineraire .row{
+    display: flex;
+    align-items: center;
+    background: var(--black);
+    flex-wrap: wrap;
+} */
+.itineraire .row .content-1{
+    flex: 1 1 45rem; 
+    padding: 2rem;   
+}
+.itineraire .row .image{    
+        flex: 1 1 45rem;  
+
+}
+.itineraire .row .image img{    
+   width: 100%; 
+
+}
+.itineraire .row .content-1 h3{
+    font-size: 3rem;
+    color: white;
+}
+.itineraire .row .content-1 p{
+    font-size: 1.6rem;
+    color: #ccc;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+#icone-itineraire li{
+    display: flex;    
+    align-items: center;    
+    color: white;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    padding: 0 2rem;
+}
+
+
+.contact .row{
+    display: flex; 
+    align-items: center;    
+    background: var(--black);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.contact .row .map{
+    flex: 1 1 45rem;
+    width: 100%;
+    object-fit: cover;
+}
+.contact .row form{
+    flex: 1 1 45rem;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+.contact .row form h3{
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    color: white;
+}
+.contact .row form .inputBox{
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background: var(--bg);
+    border:var(--border);  
+
+}
+.contact .row form .inputBox i{
+    color: white;
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+.contact .row form .inputBox .input-contact{
+    width: 100%; 
+    padding: 2rem;
+    font-size: 1.7rem;
+    color: #fff;
+    text-transform: none;
+    background: none;
+}
+
+/***************************PAGE ACTUALITES***********************************/
+.bloc-actualites .heading-actu{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+    margin: 16rem 0;
+}
+.bloc-actualites .row-actu{
+    display: flex;
+    align-items: center;
+    background: whitesmoke;
+    flex-wrap: wrap;
+    margin: 4rem 0;
+}
+.bloc-actualites .row-actu .image{
+    flex: 1 1 45rem;    
+}
+.bloc-actualites .row-actu .image img{
+    width: 100%;   
+}
+.bloc-actualites .row-actu .content{
+    flex: 1 1 45rem; 
+    padding: 2rem;   
+}
+.bloc-actualites .row-actu .content h3{
+    font-size: 3rem;
+    color: var(--black);
+}
+.bloc-actualites .row-actu .content p{
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+
+/***************************FOOTER***********************************/
+.footer{
+    background: var(--black);
+    text-align: center;
+}
+.footer .reseaux{
+    padding:1rem 0;
+}
+.footer .reseaux a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    color: white;
+    border:var(--border);
+    margin: .3rem;
+    border-radius: 50%;
+}
+.footer .reseaux a:hover{
+   background-color: var(--main-color);
+}
+.footer .links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    gap: 1rem;
+}
+.footer .links a{
+    padding: .7rem 2rem;
+    color: white;
+    border: var(--border);
+    font-size: 2rem;
+}
+.footer .links a:hover{
+    background-color: var(--main-color);
+}
+.footer .credit{
+    font-size: 2rem;
+    color: white;
+    font-weight: lighter;
+    padding: 1.5rem;
+}
+.footer .credit span{
+    color: var(--main-color);
+}
+
+
+.box-newsletter form{
+    width: 40%;
+    margin: 0 auto;
+}
+.box-newsletter h3{
+    color: white;
+    font-size: 3rem;
+}
+.box-newsletter p{
+    color: white;
+    font-size: 2rem;
+}
+
+/*********media queries*********************************************/
+@media (max-width:991px){
+    html{
+        font-size: 55%;        
+    }
+    .container-header{
+        padding: 1.5rem 2rem;
+    }
+    section{
+        padding:2rem;
+    }
+    
+} 
+
+@media (max-width:768px){
+    #menu{
+        display: inline-block;
+    }
+    .container-header .navbar{
+        position: absolute;
+        top:100%; right: -100%;
+        background: white;
+        width: 30rem;
+        height: calc(100vh - 9.5rem);
+    }
+    .container-header .navbar.active{
+        right: 0;
+    }
+    .container-header .navbar a{
+        color:var(--black);
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
+    } 
+    .container-header .search-form{
+        width: 90%;
+        right: 2rem;
+    }
+     .container-title{
+        background-position: center;
+        justify-content: center;
+        text-align: center;
+    } 
+    .container-title .content{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .container-title .content h3{
+         font-size:4.5rem; 
+        
+    }
+    .container-title .content p{
+        font-size:2rem;
+    }
+}
+ @media (max-width:450px){
+    html{
+        font-size: 50%;        
+    }
+     
+    }
